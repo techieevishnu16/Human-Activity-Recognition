@@ -7,15 +7,10 @@ There are two categories in which we can widely divide these human activity reco
 The activities that we will be predicting are:
 
 Downstairs
-
 Jogging
-
 Sitting
-
 Standing
-
 Upstairs
-
 Walking
 
 You may be thinking as to why are we using an LSTM-CNN model instead of a basic neural network/machine learning method?
@@ -23,9 +18,11 @@ You may be thinking as to why are we using an LSTM-CNN model instead of a basic 
 Machine Learning methods rely heavily on heuristic manual feature extraction for human activity recognition tasks, while a basic neural network method will not give the accuracy that a deep neural network (DNN) method will.
 
 Dataset
+
 The data set that we are using is raw data recorded by an accelerometer from a mobile device carried around a person’s waist. This data collection was supervised by a single person to ensure the quality of data. The data set file that we will use is WISDM_ar_v1.1_raw.txt. Using Pandas we will load our dataset into a DataFrame. We will also need to remove ‘;’ from the last column and convert the data to float.
 
-Working of HAR
+Working of Dataset
+
 Thus the model that I will be using is a deep neural network that is a combination of LSTM and CNN and has the ability to extract activity features and classify them with only a few model parameters which makes it simple for doing feature extraction.
 
 The WISDM dataset has a total of 1,098,209 samples. Using raw data from the WISDM dataset we will extract its features by performing different data preprocessing methods and feeding it to the model for training from where we can test our model’s accuracy.
@@ -33,6 +30,7 @@ The WISDM dataset has a total of 1,098,209 samples. Using raw data from the WISD
 This model on training gives an F1 score of 0.96 and on the Test set, it gives an F1 score of 0.89.
 
 Data preprocessing
+
 Data preprocessing is a very important task in preparing our raw data to easily parse through our model. The data preprocessing methods that we will be using are:
 
 Label Encoding
@@ -42,6 +40,7 @@ Normalization
 Segmentation
 One-Hot Encoding
 Label Encoding
+
 Since the model can not take in non-numerical labels as input we will add encoded labels of the ‘activity’ column in another column and name it ‘activityEncode’. The Labels are converted to numerical labels as shown below.
 
 Downstairs [0]
@@ -50,5 +49,7 @@ Sitting [2]
 Standing [3]
 Upstairs [4]
 Walking [5]
+
 Result
+
 After Training our model gives an accuracy of 98.02% and a loss of 0.58%. The F1 score of training comes out to be 0.96.
